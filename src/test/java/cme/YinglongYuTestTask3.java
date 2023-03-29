@@ -1047,9 +1047,9 @@ public class YinglongYuTestTask3 {
 
         Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
         BigDecimal actualValue = rate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(4.2);
-        //assertEquals(expectedValue,actualValue);
-        assertEquals(4.2, expectedValue.compareTo(actualValue));
+        BigDecimal expectedValue = BigDecimal.valueOf(4.2).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue,actualValue);
+        //assertEquals(4.2, expectedValue.compareTo(actualValue));
     }
 
 
