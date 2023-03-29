@@ -1,6 +1,7 @@
 package cme;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,9 @@ public class Rate {
     private BigDecimal hourlyReducedRate;
     private ArrayList<Period> reduced = new ArrayList<>();
     private ArrayList<Period> normal = new ArrayList<>();
+
+
+
 
     public Rate(BigDecimal normalRate, BigDecimal reducedRate, CarParkKind kind, ArrayList<Period> reducedPeriods
             , ArrayList<Period> normalPeriods) {
@@ -31,15 +35,18 @@ public class Rate {
         if (!isValidPeriods(reducedPeriods, normalPeriods)) {
             throw new IllegalArgumentException("The periods overlaps");
         }
+
         this.kind = kind;
         this.hourlyNormalRate = normalRate;
         this.hourlyReducedRate = reducedRate;
         this.reduced = reducedPeriods;
         this.normal = normalPeriods;
+
     }
 
     /**
      * Checks if two collections of periods are valid together
+     *
      * @param periods1
      * @param periods2
      * @return true if the two collections of periods are valid together
@@ -56,6 +63,7 @@ public class Rate {
 
     /**
      * checks if a collection of periods is valid
+     *
      * @param list the collection of periods to check
      * @return true if the periods do not overlap
      */
@@ -64,9 +72,9 @@ public class Rate {
         if (list.size() >= 2) {
             Period secondPeriod;
             int i = 0;
-            int lastIndex = list.size()-1;
+            int lastIndex = list.size() - 1;
             while (i < lastIndex && isValid) {
-                isValid = isValidPeriod(list.get(i), ((List<Period>)list).subList(i + 1, lastIndex+1));
+                isValid = isValidPeriod(list.get(i), ((List<Period>) list).subList(i + 1, lastIndex + 1));
                 i++;
             }
         }
@@ -75,8 +83,9 @@ public class Rate {
 
     /**
      * checks if a period is a valid addition to a collection of periods
+     *
      * @param period the Period addition
-     * @param list the collection of periods to check
+     * @param list   the collection of periods to check
      * @return true if the period does not overlap in the collecton of periods
      */
     private Boolean isValidPeriod(Period period, List<Period> list) {
@@ -88,11 +97,63 @@ public class Rate {
         }
         return isValid;
     }
+
+// ... (all the existing code in Rate.java)
+
+//    public BigDecimal calculate(Period periodStay) {
+//        int normalRateHours = periodStay.occurences(normal);
+//        int reducedRateHours = periodStay.occurences(reduced);
+//        BigDecimal totalCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+//                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+//
+//        BigDecimal finalCost;
+//
+//        switch (this.kind) {
+//            case VISITOR:
+//                finalCost = ApplyVisitorReduction.calculate(totalCost);
+//                break;
+//            case MANAGEMENT:
+//                finalCost = ApplyManagementReduction.calculate(totalCost);
+//                break;
+//            case STUDENT:
+//                finalCost = ApplyStudentReduction.calculate(totalCost);
+//                break;
+//            case STAFF:
+//                finalCost = ApplyStaffReduction.calculate(totalCost);
+//                break;
+//            default:
+//                finalCost = totalCost;
+//        }
+//
+//        return finalCost.setScale(2, RoundingMode.HALF_UP);
+//    }
+// ... (all the existing code in Rate.java)
+
     public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
-        return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+        BigDecimal totalCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+        totalCost = totalCost.setScale(2, RoundingMode.HALF_UP);
+
+        switch (this.kind) {
+            case VISITOR:
+                return ApplyVisitorReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+
+            case MANAGEMENT:
+                return ApplyManagementReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+            case STUDENT:
+                return ApplyStudentReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+            case STAFF:
+                return ApplyStaffReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+            default:
+                return totalCost;
+        }
     }
 
 }
+
+
+
+
+
