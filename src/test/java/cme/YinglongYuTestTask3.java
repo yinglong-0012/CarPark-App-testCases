@@ -930,215 +930,215 @@ public class YinglongYuTestTask3 {
 
 
 
-//    /**
-//     * CalculateTestcases
-//     */
-//    @Test
-//    @DisplayName("CalculateTestCase1")
-//    void calculateTestCase1()  {
-//        CarParkKind kind = CarParkKind.STAFF;
-//        BigDecimal normalRate = new BigDecimal(2.1);
-//        BigDecimal reducedRate = new BigDecimal(1.6);
-//
-//        Period normalPeriod1 = new Period(8,10);
-//        Period normalPeriod2 = new Period(13,15);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//
-//        Period reducedPeriod1 = new Period(10,12);
-//        Period reducedPeriod2 = new Period(16,21);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod1);
-//        reducedPeriods.add(reducedPeriod2);
-//
-//        Period periodStay = new Period(16,18);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(3.2);
-//       //assertEquals(expectedValue,actualValue);
-//        assertEquals(3.2, expectedValue.compareTo(actualValue));
-//    }
-//
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase2")
-//    void calculateTestCase2()  {
-//        CarParkKind kind = CarParkKind.STUDENT;
-//        BigDecimal normalRate = new BigDecimal(3.7);
-//        BigDecimal reducedRate = new BigDecimal(2);
-//
-//        Period normalPeriod1 = new Period(8,9);
-//        Period normalPeriod2 = new Period(12,15);
-//        Period normalPeriod3 = new Period(15,20);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//        normalPeriods.add(normalPeriod3);
-//
-//        Period reducedPeriod = new Period(9,11);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod);
-//
-//        Period periodStay = new Period(9,10);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(2);
-//
-//        //assertEquals(expectedValue,actualValue);
-//        assertEquals(2, expectedValue.compareTo(actualValue));
-//
-//    }
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase3")
-//    void calculateTestCase3()  {
-//        CarParkKind kind = CarParkKind.STUDENT;
-//        BigDecimal normalRate = new BigDecimal(6.3);
-//        BigDecimal reducedRate = new BigDecimal(3.1);
-//
-//        Period normalPeriod1 = new Period(8,9);
-//        Period normalPeriod2 = new Period(15,20);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//
-//        Period reducedPeriod1 = new Period(9,11);
-//        Period reducedPeriod2 = new Period(12,15);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod1);
-//        reducedPeriods.add(reducedPeriod2);
-//
-//        Period periodStay = new Period(15,17);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(12.6);
-//
-//        //assertEquals(expectedValue,actualValue);
-//        assertEquals(12.6, expectedValue.compareTo(actualValue));
-//
-//    }
-//
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase4")
-//    void calculateTestCase4()  {
-//        CarParkKind kind = CarParkKind.STAFF;
-//        BigDecimal normalRate = new BigDecimal(2.1);
-//        BigDecimal reducedRate = new BigDecimal(1.6);
-//
-//        Period normalPeriod1 = new Period(8,9);
-//        Period normalPeriod2 = new Period(15,20);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//
-//        Period reducedPeriod = new Period(9,13);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod);
-//
-//        Period periodStay = new Period(16,18);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(4.2);
-//        //assertEquals(expectedValue,actualValue);
-//        assertEquals(4.2, expectedValue.compareTo(actualValue));
-//    }
-//
-//
-//
-//
-//
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase5")
-//    void calculateTestCase5()  {
-//        CarParkKind kind = CarParkKind.STUDENT;
-//        BigDecimal normalRate = new BigDecimal(4.2);
-//        BigDecimal reducedRate = new BigDecimal(3);
-//
-//        Period normalPeriod1 = new Period(8,10);
-//        Period normalPeriod2 = new Period(13,15);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//
-//        Period reducedPeriod1 = new Period(10,12);
-//        Period reducedPeriod2 = new Period(16,21);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod1);
-//        reducedPeriods.add(reducedPeriod2);
-//
-//        Period periodStay = new Period(16,20);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(12);
-//       // assertEquals(expectedValue,actualValue);
-//        assertEquals(12, expectedValue.compareTo(actualValue));
-//    }
-//
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase6")
-//    void calculateTestCase6()  {
-//        CarParkKind kind = CarParkKind.MANAGEMENT;
-//        BigDecimal normalRate = new BigDecimal(2.1);
-//        BigDecimal reducedRate = new BigDecimal(1.6);
-//
-//        Period normalPeriod1 = new Period(8,10);
-//        Period normalPeriod2 = new Period(13,15);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//
-//        Period reducedPeriod1 = new Period(10,12);
-//        Period reducedPeriod2 = new Period(16,21);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod1);
-//        reducedPeriods.add(reducedPeriod2);
-//
-//        Period periodStay = new Period(9,10);
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        BigDecimal actualValue = rate.calculate(periodStay);
-//        BigDecimal expectedValue = BigDecimal.valueOf(2.1);
-//        //assertEquals(expectedValue,actualValue);
-//        assertEquals(2.1, expectedValue.compareTo(actualValue));
-//    }
-//
-//
-//
-//    @Test
-//    @DisplayName("CalculateTestCase7")
-//    void calculateTestCase7()  {
-//        CarParkKind kind = CarParkKind.STUDENT;
-//        BigDecimal normalRate = new BigDecimal(5);
-//        BigDecimal reducedRate = new BigDecimal(1);
-//        Period normalPeriod1 = new Period(8,10);
-//        Period normalPeriod2 = new Period(13,15);
-//        ArrayList<Period> normalPeriods = new ArrayList<>();
-//        normalPeriods.add(normalPeriod1);
-//        normalPeriods.add(normalPeriod2);
-//        Period reducedPeriod = new Period(10,12);
-//        ArrayList<Period> reducedPeriods = new ArrayList<>();
-//        reducedPeriods.add(reducedPeriod);
-//
-//
-//        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-//        Period periodStay = null;
-//
-//        assertThrows(NullPointerException.class,()-> rate.calculate(periodStay));
-//    }
+    /**
+     * CalculateTestcases
+     */
+    @Test
+    @DisplayName("CalculateTestCase1")
+    void calculateTestCase1()  {
+        CarParkKind kind = CarParkKind.STAFF;
+        BigDecimal normalRate = new BigDecimal(2.1);
+        BigDecimal reducedRate = new BigDecimal(1.6);
+
+        Period normalPeriod1 = new Period(8,10);
+        Period normalPeriod2 = new Period(13,15);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Period reducedPeriod1 = new Period(10,12);
+        Period reducedPeriod2 = new Period(16,21);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod1);
+        reducedPeriods.add(reducedPeriod2);
+
+        Period periodStay = new Period(16,18);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(3.2).setScale(2, RoundingMode.HALF_UP);
+       assertEquals(expectedValue,actualValue);
+
+    }
+
+
+
+    @Test
+    @DisplayName("CalculateTestCase2")
+    void calculateTestCase2()  {
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normalRate = new BigDecimal(3.7);
+        BigDecimal reducedRate = new BigDecimal(2);
+
+        Period normalPeriod1 = new Period(8,9);
+        Period normalPeriod2 = new Period(12,15);
+        Period normalPeriod3 = new Period(15,20);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+        normalPeriods.add(normalPeriod3);
+
+        Period reducedPeriod = new Period(9,11);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(9,10);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(2);
+
+        //assertEquals(expectedValue,actualValue);
+        assertEquals(2, expectedValue.compareTo(actualValue));
+
+    }
+
+
+    @Test
+    @DisplayName("CalculateTestCase3")
+    void calculateTestCase3()  {
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normalRate = new BigDecimal(6.3);
+        BigDecimal reducedRate = new BigDecimal(3.1);
+
+        Period normalPeriod1 = new Period(8,9);
+        Period normalPeriod2 = new Period(15,20);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Period reducedPeriod1 = new Period(9,11);
+        Period reducedPeriod2 = new Period(12,15);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod1);
+        reducedPeriods.add(reducedPeriod2);
+
+        Period periodStay = new Period(15,17);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(12.6);
+
+        //assertEquals(expectedValue,actualValue);
+        assertEquals(12.6, expectedValue.compareTo(actualValue));
+
+    }
+
+
+
+    @Test
+    @DisplayName("CalculateTestCase4")
+    void calculateTestCase4()  {
+        CarParkKind kind = CarParkKind.STAFF;
+        BigDecimal normalRate = new BigDecimal(2.1);
+        BigDecimal reducedRate = new BigDecimal(1.6);
+
+        Period normalPeriod1 = new Period(8,9);
+        Period normalPeriod2 = new Period(15,20);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Period reducedPeriod = new Period(9,13);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(16,18);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(4.2);
+        //assertEquals(expectedValue,actualValue);
+        assertEquals(4.2, expectedValue.compareTo(actualValue));
+    }
+
+
+
+
+
+
+
+    @Test
+    @DisplayName("CalculateTestCase5")
+    void calculateTestCase5()  {
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normalRate = new BigDecimal(4.2);
+        BigDecimal reducedRate = new BigDecimal(3);
+
+        Period normalPeriod1 = new Period(8,10);
+        Period normalPeriod2 = new Period(13,15);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Period reducedPeriod1 = new Period(10,12);
+        Period reducedPeriod2 = new Period(16,21);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod1);
+        reducedPeriods.add(reducedPeriod2);
+
+        Period periodStay = new Period(16,20);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(12);
+       // assertEquals(expectedValue,actualValue);
+        assertEquals(12, expectedValue.compareTo(actualValue));
+    }
+
+
+
+    @Test
+    @DisplayName("CalculateTestCase6")
+    void calculateTestCase6()  {
+        CarParkKind kind = CarParkKind.MANAGEMENT;
+        BigDecimal normalRate = new BigDecimal(2.1);
+        BigDecimal reducedRate = new BigDecimal(1.6);
+
+        Period normalPeriod1 = new Period(8,10);
+        Period normalPeriod2 = new Period(13,15);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Period reducedPeriod1 = new Period(10,12);
+        Period reducedPeriod2 = new Period(16,21);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod1);
+        reducedPeriods.add(reducedPeriod2);
+
+        Period periodStay = new Period(9,10);
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal expectedValue = BigDecimal.valueOf(2.1);
+        //assertEquals(expectedValue,actualValue);
+        assertEquals(2.1, expectedValue.compareTo(actualValue));
+    }
+
+
+
+    @Test
+    @DisplayName("CalculateTestCase7")
+    void calculateTestCase7()  {
+        CarParkKind kind = CarParkKind.STUDENT;
+        BigDecimal normalRate = new BigDecimal(5);
+        BigDecimal reducedRate = new BigDecimal(1);
+        Period normalPeriod1 = new Period(8,10);
+        Period normalPeriod2 = new Period(13,15);
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+        Period reducedPeriod = new Period(10,12);
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(reducedPeriod);
+
+
+        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        Period periodStay = null;
+
+        assertThrows(NullPointerException.class,()-> rate.calculate(periodStay));
+    }
 
 
     @Test
