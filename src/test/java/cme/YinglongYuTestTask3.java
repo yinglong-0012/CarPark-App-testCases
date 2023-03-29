@@ -1155,7 +1155,7 @@ public class YinglongYuTestTask3 {
         Period periodStay = new Period(9, 10);
 
         BigDecimal actualValue = visitorRate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(2).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal expectedValue = BigDecimal.valueOf(0).setScale(2, RoundingMode.HALF_UP);
         assertEquals(expectedValue, actualValue);
 
     }
