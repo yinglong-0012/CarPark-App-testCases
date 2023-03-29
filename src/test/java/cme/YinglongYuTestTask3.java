@@ -1140,11 +1140,12 @@ public class YinglongYuTestTask3 {
 //        assertThrows(NullPointerException.class,()-> rate.calculate(periodStay));
 //    }
 
+
     @Test
     public void testVisitorReductionLessTen() {
         ArrayList<Period> reducedPeriods = new ArrayList<>();
         ArrayList<Period> normalPeriods = new ArrayList<>();
-        Rate visitorRate = new Rate(new BigDecimal(10), new BigDecimal(5), CarParkKind.VISITOR, reducedPeriods, normalPeriods);
+        Rate visitorRate = new Rate(new BigDecimal(8), new BigDecimal(5), CarParkKind.VISITOR, reducedPeriods, normalPeriods);
         Period normalPeriod = new Period(8, 14);
         Period reducedPeriod = new Period(14, 24);
 
@@ -1154,9 +1155,8 @@ public class YinglongYuTestTask3 {
         Period periodStay = new Period(9, 11);
 
         BigDecimal actualValue = visitorRate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(5).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal expectedValue = BigDecimal.valueOf(3).setScale(2, RoundingMode.HALF_UP);
         assertEquals(expectedValue, actualValue);
-
 
     }
 
