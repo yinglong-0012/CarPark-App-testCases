@@ -1145,17 +1145,17 @@ public class YinglongYuTestTask3 {
     public void testVisitorReductionLessTen() {
         ArrayList<Period> reducedPeriods = new ArrayList<>();
         ArrayList<Period> normalPeriods = new ArrayList<>();
-        Rate visitorRate = new Rate(new BigDecimal(8), new BigDecimal(5), CarParkKind.VISITOR, reducedPeriods, normalPeriods);
+        Rate visitorRate = new Rate(new BigDecimal(2), new BigDecimal(1), CarParkKind.VISITOR, reducedPeriods, normalPeriods);
         Period normalPeriod = new Period(8, 14);
         Period reducedPeriod = new Period(14, 24);
 
         normalPeriods.add(normalPeriod);
         reducedPeriods.add(reducedPeriod);
 
-        Period periodStay = new Period(9, 11);
+        Period periodStay = new Period(9, 10);
 
         BigDecimal actualValue = visitorRate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(3).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal expectedValue = BigDecimal.valueOf(2).setScale(2, RoundingMode.HALF_UP);
         assertEquals(expectedValue, actualValue);
 
     }
@@ -1172,7 +1172,7 @@ public class YinglongYuTestTask3 {
         normalPeriods.add(normalPeriod);
         reducedPeriods.add(reducedPeriod);
 
-        Period periodStay = new Period(15, 24); // Staying for 10 hours
+        Period periodStay = new Period(15, 24);
 
         BigDecimal actualValue = visitorRate.calculate(periodStay);
         BigDecimal expectedValue = BigDecimal.valueOf(17.5).setScale(2, RoundingMode.HALF_UP);
