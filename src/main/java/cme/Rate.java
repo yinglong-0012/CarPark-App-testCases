@@ -98,36 +98,7 @@ public class Rate {
         return isValid;
     }
 
-// ... (all the existing code in Rate.java)
 
-//    public BigDecimal calculate(Period periodStay) {
-//        int normalRateHours = periodStay.occurences(normal);
-//        int reducedRateHours = periodStay.occurences(reduced);
-//        BigDecimal totalCost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-//                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-//
-//        BigDecimal finalCost;
-//
-//        switch (this.kind) {
-//            case VISITOR:
-//                finalCost = ApplyVisitorReduction.calculate(totalCost);
-//                break;
-//            case MANAGEMENT:
-//                finalCost = ApplyManagementReduction.calculate(totalCost);
-//                break;
-//            case STUDENT:
-//                finalCost = ApplyStudentReduction.calculate(totalCost);
-//                break;
-//            case STAFF:
-//                finalCost = ApplyStaffReduction.calculate(totalCost);
-//                break;
-//            default:
-//                finalCost = totalCost;
-//        }
-//
-//        return finalCost.setScale(2, RoundingMode.HALF_UP);
-//    }
-// ... (all the existing code in Rate.java)
 
     public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
@@ -141,11 +112,11 @@ public class Rate {
                 return ApplyVisitorReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
 
             case MANAGEMENT:
-                return ApplyManagementReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
-            case STUDENT:
-                return ApplyStudentReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
-            case STAFF:
-                return ApplyStaffReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+                     return ApplyManagementReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+//            case STUDENT:
+//                return ApplyStudentReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+//            case STAFF:
+//                return ApplyStaffReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
             default:
                 return totalCost;
         }
