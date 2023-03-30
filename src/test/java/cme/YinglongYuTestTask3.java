@@ -1079,11 +1079,11 @@ public class YinglongYuTestTask3 {
 
         Period periodStay = new Period(16,20);
 
-        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-        BigDecimal actualValue = rate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(12).setScale(2, RoundingMode.HALF_UP);
-        assertEquals(expectedValue,actualValue);
-        //assertEquals(12, expectedValue.compareTo(actualValue));
+        Rate studentRate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        BigDecimal cost = studentRate.calculate(periodStay);
+        BigDecimal actualValue = ApplyStudentReduction.calculate(cost).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal expectedValue = BigDecimal.valueOf(8.42).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
     }
 
 
