@@ -1016,7 +1016,7 @@ public class YinglongYuTestTask3 {
         Period periodStay = new Period(15,17);
 
         Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-        BigDecimal actualValue = rate.calculate(periodStay);
+        BigDecimal actualValue = rate.calculate(periodStay).setScale(2, RoundingMode.HALF_UP);
         BigDecimal expectedValue = BigDecimal.valueOf(12.6).setScale(2, RoundingMode.HALF_UP);
 
         assertEquals(expectedValue,actualValue);
@@ -1141,6 +1141,9 @@ public class YinglongYuTestTask3 {
     }
 
 
+
+    // new added test case
+
     @Test
     public void testVisitorReductionLessTen() {
         ArrayList<Period> reducedPeriods = new ArrayList<>();
@@ -1216,6 +1219,30 @@ public class YinglongYuTestTask3 {
         BigDecimal expectedValue = BigDecimal.valueOf(30).setScale(2, RoundingMode.HALF_UP);
         assertEquals(expectedValue, actualValue);
     }
+
+
+    @Test
+    public void testStudentReductionLessThanReduceDomain() {
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        Rate studentRate = new Rate(new BigDecimal(5), new BigDecimal(2), CarParkKind.STUDENT, reducedPeriods, normalPeriods);
+        Period normalPeriod = new Period(8, 14);
+        Period reducedPeriod = new Period(14, 24);
+
+        normalPeriods.add(normalPeriod);
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(9, 10);
+
+        BigDecimal cost = studentRate.calculate(periodStay);
+        BigDecimal actualValue = ApplyStudentReduction.calculate(cost);
+
+        BigDecimal expectedValue = BigDecimal.valueOf(5).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
+    }
+
+
+
 
 
 
