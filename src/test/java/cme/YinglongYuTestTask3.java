@@ -1243,6 +1243,25 @@ public class YinglongYuTestTask3 {
 
 
 
+    @Test
+    public void testStudentReductionGreaterThanReduceDomain() {
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        Rate studentRate = new Rate(new BigDecimal(10), new BigDecimal(5), CarParkKind.STUDENT, reducedPeriods, normalPeriods);
+        Period normalPeriod = new Period(8, 14);
+        Period reducedPeriod = new Period(14, 24);
+
+        normalPeriods.add(normalPeriod);
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(9, 10);
+
+        BigDecimal cost = studentRate.calculate(periodStay);
+        BigDecimal actualValue = ApplyStudentReduction.calculate(cost).setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal expectedValue = BigDecimal.valueOf(7.52).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
+    }
 
 
 
