@@ -1013,14 +1013,14 @@ public class YinglongYuTestTask3 {
         reducedPeriods.add(reducedPeriod1);
         reducedPeriods.add(reducedPeriod2);
 
-        Period periodStay = new Period(15,17);
+        Rate studentRate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
+        Period periodStay = new Period(13,14);
 
-        Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
-        BigDecimal actualValue = rate.calculate(periodStay).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal expectedValue = BigDecimal.valueOf(12.6).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal cost = studentRate.calculate(periodStay);
+        BigDecimal actualValue = ApplyStudentReduction.calculate(cost).setScale(2, RoundingMode.HALF_UP);
 
-        assertEquals(expectedValue,actualValue);
-        //assertEquals(12.6, expectedValue.compareTo(actualValue));
+        BigDecimal expectedValue = BigDecimal.valueOf(3.1).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
 
     }
 
