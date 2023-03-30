@@ -1179,6 +1179,27 @@ public class YinglongYuTestTask3 {
         assertEquals(expectedValue, actualValue);
     }
 
+    @Test
+    public void testManagementReductionLessThanMinPayable() {
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        Rate managementRate = new Rate(new BigDecimal(10), new BigDecimal(3), CarParkKind.MANAGEMENT, reducedPeriods, normalPeriods);
+        Period normalPeriod = new Period(8, 14);
+        Period reducedPeriod = new Period(14, 24);
+
+        normalPeriods.add(normalPeriod);
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(15, 16);
+
+        BigDecimal actualValue = managementRate.calculate(periodStay);
+
+        BigDecimal expectedValue = BigDecimal.valueOf(5).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
+    }
+
+
+
 
 
 
