@@ -113,8 +113,8 @@ public class Rate {
 
             case MANAGEMENT:
                      return ApplyManagementReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
-//            case STUDENT:
-//                return ApplyStudentReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
+            case STUDENT:
+                return ApplyStudentReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
 //            case STAFF:
 //                return ApplyStaffReduction.calculate(totalCost).setScale(2, RoundingMode.HALF_UP);
             default:
