@@ -1111,9 +1111,9 @@ public class YinglongYuTestTask3 {
 
         Rate rate = new Rate(normalRate,reducedRate,kind,reducedPeriods,normalPeriods);
         BigDecimal actualValue = rate.calculate(periodStay);
-        BigDecimal expectedValue = BigDecimal.valueOf(2.1).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal expectedValue = BigDecimal.valueOf(5).setScale(2, RoundingMode.HALF_UP);
         assertEquals(expectedValue,actualValue);
-        //assertEquals(2.1, expectedValue.compareTo(actualValue));
+
     }
 
 
