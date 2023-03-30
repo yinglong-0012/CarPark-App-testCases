@@ -1285,6 +1285,25 @@ public class YinglongYuTestTask3 {
     }
 
 
+    @Test
+    public void testStaffReductionGreaterThanMaxPayable() {
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        Rate staffRate = new Rate(new BigDecimal(15), new BigDecimal(10), CarParkKind.STAFF, reducedPeriods, normalPeriods);
+        Period normalPeriod = new Period(8, 14);
+        Period reducedPeriod = new Period(14, 24);
 
+        normalPeriods.add(normalPeriod);
+        reducedPeriods.add(reducedPeriod);
+
+        Period periodStay = new Period(8, 20);
+
+        BigDecimal cost = staffRate.calculate(periodStay);
+        BigDecimal actualValue = ApplyStaffReduction.calculate(cost).setScale(2, RoundingMode.HALF_UP);
+
+        BigDecimal expectedValue = BigDecimal.valueOf(10.00).setScale(2, RoundingMode.HALF_UP);
+        assertEquals(expectedValue, actualValue);
+
+}
 }
 
